@@ -1,0 +1,26 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+FRASES=(
+    "La práctica hace al maestro."
+    "No dejes para mañana lo que puedes hacer hoy."
+    "El conocimiento es poder."
+    "Código limpio es código feliz."
+    "El código es poesía."
+    "Debugging es como ser detective en una película donde también eres el asesino."
+    "Un buen programador es aquel que mira ambos lados antes de cruzar una calle de un solo sentido."
+    "La mejor forma de predecir el futuro es inventarlo."
+    "No hay atajos para los lugares que valen la pena."
+    "El éxito es la suma de pequeños esfuerzos repetidos día tras día."
+    "Primero hazlo, luego hazlo bien, después hazlo mejor."
+    "El aprendizaje nunca agota la mente."
+    "La práctica no hace la perfección. La práctica perfecta hace la perfección."
+    "Si puedes soñarlo, puedes programarlo."
+    "Los errores son prueba de que lo estás intentando."
+    "Hoy es un buen día para aprender algo nuevo."
+    "El conocimiento es poder, pero solo si lo aplicas."
+    "No cuentes los días, haz que los días cuenten."
+    "La disciplina es el puente entre metas y logros."
+)
+
+# Seleccionar frase aleatoria
+echo "${FRASES[$RANDOM % ${#FRASES[@]}]}"
