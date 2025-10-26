@@ -1,0 +1,212 @@
+# ========================================
+# ALIAS Y ATAJOS DE ZSH
+# ========================================
+
+# --- NAVEGACIÓN ---
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias home='cd ~'
+alias back='cd -'
+
+# --- LISTADO DE ARCHIVOS ---
+alias ls='ls --color=auto'
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+alias tree='tree -C'
+
+# --- DIRECTORIOS COMUNES ---
+alias proyectos='cd ~/proyectos'
+alias repos='cd ~/repos'
+alias docs='cd ~/documentos'
+alias public='cd ~/public_html'
+
+# --- UTILIDADES GENERALES ---
+alias c='clear'
+alias h='history'
+alias path='echo $PATH | tr ":" "\n"'
+alias reload='source ~/.zshrc'
+alias zshconfig='nvim ~/.zshrc'
+alias aliasconfig='nvim ~/.zsh_aliases'
+
+# --- SEGURIDAD ---
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# ========================================
+# GIT ALIASES
+# ========================================
+
+# --- STATUS Y INFO ---
+alias gs='git status'
+alias gss='git status -s'
+alias gl='git log --oneline --graph --decorate'
+alias gll='git log --graph --pretty=format:"%C(yellow)%h%Creset %C(blue)%an%Creset %s %C(green)%cr%Creset" --abbrev-commit'
+alias glog='git log --oneline --decorate --graph --all'
+
+# --- BRANCHES ---
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout main'
+alias gcd='git checkout develop'
+
+# --- ADD Y COMMIT ---
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gca='git commit --amend'
+alias gcm='git commit -m'
+
+# --- PUSH Y PULL ---
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin main'
+alias gpl='git pull'
+alias gplo='git pull origin'
+alias gplom='git pull origin main'
+
+# --- DIFF Y SHOW ---
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gshow='git show'
+
+# --- REMOTE ---
+alias gr='git remote -v'
+alias gra='git remote add'
+
+# --- OTROS ---
+alias gclone='git clone'
+alias ginit='git init'
+alias gstash='git stash'
+alias gpop='git stash pop'
+
+# --- ATAJOS ÚTILES ---
+alias gacp='git add . && git commit -m'  # uso: gacp "mensaje"
+alias gundo='git reset HEAD~1'
+alias glast='git log -1 HEAD'
+
+# --- GIT + SSH ---
+alias sshtest='ssh -T git@github.com'
+alias sshkey='cat ~/.ssh/id_ed25519.pub'
+alias sshcopy='cat ~/.ssh/id_ed25519.pub | termux-clipboard-set'
+alias gitconfig='git config --global --list'
+
+# --- REPOS ---
+alias repos='cd ~/storage/shared/GitData'
+alias clonegit='cd ~/storage/shared/GitData && git clone'
+
+# ========================================
+# PYTHON ALIASES
+# ========================================
+
+# --- PYTHON BÁSICO ---
+alias py='python'
+alias py3='python3'
+alias python='python3'
+alias pip='pip3'
+
+# --- ENTORNOS VIRTUALES ---
+alias venv='python -m venv venv'
+alias activate='source venv/bin/activate'
+alias deactivate='deactivate'
+
+# --- PIP ---
+alias pipi='pip install'
+alias pipu='pip install --upgrade'
+alias pipun='pip uninstall'
+alias piplist='pip list'
+alias pipfreeze='pip freeze > requirements.txt'
+alias pipreq='pip install -r requirements.txt'
+
+# --- EJECUCIÓN ---
+alias pyrun='python main.py'
+alias pytest='python -m pytest'
+alias pyserve='python -m http.server'
+alias pyserve8080='python -m http.server 8080'
+
+# --- FORMATEO Y LINTING ---
+alias black='python -m black .'
+alias flake='python -m flake8'
+alias mypy='python -m mypy'
+
+# --- JUPYTER (si lo usas) ---
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
+
+# --- DJANGO (si lo usas) ---
+alias djrun='python manage.py runserver'
+alias djmake='python manage.py makemigrations'
+alias djmigrate='python manage.py migrate'
+alias djshell='python manage.py shell'
+alias djtest='python manage.py test'
+
+# --- FLASK (si lo usas) ---
+alias flaskrun='flask run'
+alias flaskshell='flask shell'
+
+# ========================================
+# TERMUX ESPECÍFICO
+# ========================================
+
+# --- PAQUETES ---
+alias pkgup='pkg update && pkg upgrade'
+alias pkgi='pkg install'
+alias pkgun='pkg uninstall'
+alias pkgs='pkg search'
+
+# --- STORAGE ---
+alias storage='termux-setup-storage'
+
+# --- NGROK ---
+alias ngrok8080='ngrok http 8080'
+alias ngrok3000='ngrok http 3000'
+alias ngrok5000='ngrok http 5000'
+
+# ========================================
+# NEOVIM
+# ========================================
+
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias nv='nvim'
+
+# ========================================
+# DESARROLLO WEB
+# ========================================
+
+# --- NPM ---
+alias ni='npm install'
+alias nid='npm install --save-dev'
+alias nig='npm install -g'
+alias nu='npm uninstall'
+alias nrun='npm run'
+alias nstart='npm start'
+alias ntest='npm test'
+
+# ========================================
+# ATAJOS PERSONALIZADOS
+# ========================================
+
+# --- Servidor + ngrok ---
+alias serve='cd ~/public_html && python -m http.server 8080'
+alias tunnel='ngrok http 8080'
+
+# --- Inicio rápido de proyecto Python ---
+alias pystart='mkdir -p src tests && touch src/__init__.py tests/__init__.py README.md requirements.txt .gitignore && python -m venv venv'
+
+# --- Git commit rápido ---
+alias quickcommit='git add . && git commit -m "quick update" && git push'
+
+# --- Ver puertos ocupados ---
+alias ports='netstat -tuln'
+
+# --- Espacio en disco ---
+alias disk='df -h'
+alias dua='du -sh *'
+

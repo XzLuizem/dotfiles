@@ -1,0 +1,45 @@
+# ========================================
+# SALUDO DE BIENVENIDA
+# ========================================
+
+#!/data/data/com.termux/files/usr/bin/zsh
+
+# Función de bienvenida
+zsh_welcome() {
+    # clear  # Limpiar pantalla primero
+    
+    # Saludos aleatorios
+    local saludos=("Hola Luis" "Bienvenido Luis" "Hey Luis" "Start Termux, Luis")
+    local saludo=${saludos[$RANDOM % ${#saludos[@]}]}
+    
+    # Fuentes aleatorias
+    local fuentes=(slant big banner digital standard)
+    local fuente=${fuentes[$RANDOM % ${#fuentes[@]}]}
+    
+    # Banner
+    figlet -f $fuente "$saludo" | lolcat
+
+    # Info del sistema
+    echo ""
+    echo "📱 Dispositivo: Poco Pad" | lolcat
+    echo "👤 Usuario: Luis" | lolcat
+    # echo "👤 Usuario: $(whoami)" | lolcat
+    echo "📅 Fecha: $(date '+%d/%m/%Y %H:%M')" | lolcat
+    echo ""
+
+    # Mascotas aleatorias
+    if command -v cowsay &> /dev/null && command -v lolcat &> /dev/null; then
+        local mascotas=(actually alpaca beavis.zen blowfish bong bud-frogs bunny cheese cower cupcake default elephant elephant-in-snake eyes flaming-sheep fox ghostbusters head-in hellokitty kiss koala kosh llama luke-koala mech-and-cow meow milk moofasa moose mutilated ren sheep skeleton small stegosaurus stimpy supermilker surgery sus three-eyes turkey turtle tux udder vader vader-koala www)
+        local mascota=${mascotas[$RANDOM % ${#mascotas[@]}]}
+        
+        if [[ -x ~/.local/bin/frase-random ]]; then
+            ~/.local/bin/frase-random | cowsay -f $mascota | lolcat -F
+        fi
+    fi
+}
+
+# Ejecutar solo en sesiones interactivas
+if [[ $- == *i* ]]; then
+    zsh_welcome
+fi
+
